@@ -2,7 +2,6 @@
     <title>HTML Coding Simulator</title>
     <script>
         function saveDefault() {
-            const al = "<script>window.addEventListener('error', event => {alert(event.message)})<\/script>"
             document.getElementById('iframe').srcdoc = `<script>window.addEventListener('error', event => {document.body.innerText = \`\$\{event.message\}\`/**alert(event.message)/**/})<\/script><style>body { overflow-wrap: break-word; height: 100%; } </style><body>${document.getElementById('input').value || "<h1>Hello, World!</h1>"}</body>`; 
             localStorage.setItem('code', document.getElementById('input').value)
         }
@@ -166,6 +165,3 @@ This cannot be undone.`)) {e.stopPropagation(); removeSave(k);} };
     </script>
 </body>
 " style="width: 50%; height: 49%; position: fixed; bottom: 0; left: 50%; border: 5px solid #000; border-left: 0; border-top: 5px solid #fff;"></iframe>
-
-<!-- new -->
-<iframe id="iframe3" srcdoc="" style="display: none; width: 25%; height: 50%; position: fixed; bottom: 0; right: 0; border: 5px solid #000; border-left: 0; border-top: 0;"></iframe>
