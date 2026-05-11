@@ -3,7 +3,7 @@
     <title>HTML Coding Simulator</title>
     <script>
         function saveDefault() {
-            document.getElementById('iframe').srcdoc = `<script>window.addEventListener('error', event => {document.body.innerText = \`\$\{event.message\}\`/**alert(event.message)/**/})<\/script><style>body { overflow-wrap: break-word; height: 100%; } </style><body>${document.getElementById('input').value || "<h1>Hello, World!</h1>"}</body>`; 
+            document.getElementById('iframe').srcdoc = `<script>window.addEventListener('error', event => {document.body.innerText = \`\$\{event.message\}\`/**alert(event.message)/**/})<\/script><style>body { overflow-wrap: break-word; height: 100%; } </style><body>${ document.getElementById('input').value || document.getElementById('input').placeholder }</body>`; 
             localStorage.setItem('code', document.getElementById('input').value)
         }
         window.onload = () => {
@@ -15,6 +15,7 @@
 
 <textarea id="input" style="width: 50%; max-width: 50%; min-width: 50%; height: 90%; max-height: 90%; min-height: 90%; position: fixed; top: 0; left: 0; border: 5px solid #000;" placeholder="
 <h1>Hello, World!</h1>
+<button id='button'>button</button>
 <!--
 Type HTML here...
 
@@ -24,6 +25,17 @@ Use <script> For Javascript
 
 And Use <style> For CSS
 -->
+<script>
+    button.onclick = () => {
+        document.body.style.backgroundImage = 'linear-gradient(135deg,#3fc,#0c0)';
+        alert('Hello!')
+    }
+</script>
+<style>
+    h1 {
+        text-decoration: underline;
+    }
+</style>
 " oninput="saveDefault()"></textarea>
 
 <banner style="text-align: center; width: 50%; max-width: 50%; min-width: 50%; height: 10%; max-height: 10%; min-height: 10%; position: fixed; bottom: 0; left: 0; border-right: 0px solid #fff; border: 5px solid #000;">
