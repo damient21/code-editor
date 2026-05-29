@@ -101,7 +101,7 @@ And Use <style> For CSS
 <body>
 
     <div class='blocker' id='A'>
-        Savestates
+        Savestates<br>
         (Locked🔒)
     </div>
 
@@ -122,8 +122,8 @@ And Use <style> For CSS
         else {
             startScreen.innerText = `WRONG🔒❌`
             setTimeout(()=>{
-                startScreen.innerText = 
-                    `Savestates
+                startScreen.innerHTML = 
+                    `Savestates <br>
                     (Locked🔒)`
             }, 2000)
         }
