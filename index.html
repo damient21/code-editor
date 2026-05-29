@@ -3,19 +3,29 @@
     <title>HTML Coding Simulator</title>
     <script>
         function saveDefault() {
-            document.getElementById('iframe').srcdoc = `<script>window.addEventListener('error', event => {document.body.innerText = \`\$\{event.message\}\`/**alert(event.message)/**/})<\/script><style>body { overflow-wrap: break-word; height: 100%; } </style><body>${ document.getElementById('input').value || document.getElementById('input').placeholder }</body>`; 
+            document.getElementById('iframe').srcdoc = `
+<script>
+window.addEventListener('error', event => {document.body.innerText = \`\$\{event.message\}\`/**alert(event.message)/**/})
+window.addEventListener('keydown', e => {if (event.key === 'n') {const newwindow = window.open('about:blank');newwindow.document.write(document.getElementById('input').value)}})
+<\/script>
+<style>
+body { overflow-wrap: break-word; height: 100%; } 
+</style>
+<body>
+${ document.getElementById('input').value || document.getElementById('input').placeholder }
+</body>`; 
             localStorage.setItem('code', document.getElementById('input').value)
         }
         window.onload = () => {
             document.getElementById('input').value = localStorage.getItem('code');
             setTimeout(saveDefault, 1)
-        }
+        }/*
         window.addEventListener('keydown', e => {
             if (event.key === 'n') {
                 const newwindow = window.open('about:blank');
                 newwindow.document.write(document.getElementById('input').value)
             }
-        })
+        })/**/
     </script>
 </head>
 
