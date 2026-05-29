@@ -10,6 +10,12 @@
             document.getElementById('input').value = localStorage.getItem('code');
             setTimeout(saveDefault, 1)
         }
+        window.addEventListener('keydown', e => {
+            if (event.key === 'n') {
+                const newwindow = window.open('about:blank');
+                newwindow.document.write(document.getElementById('input').value)
+            }
+        })
     </script>
 </head>
 
